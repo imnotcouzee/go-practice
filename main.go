@@ -1,36 +1,18 @@
 package main
 
 import (
-	"library-system/library"
+	contactbook "contact-book/contact-book"
 )
 
 func main() {
-	centralLibrary := library.NewLibrary("Центральная Библиотека")
+	myContactBook := contactbook.NewContactBook("couzee")
 
-	firstBook := library.NewBook(1, "Война и Мир. Том 1", "Толстой Л.Н.", 10, 5)
-	secondBook := library.NewBook(2, "Война и Мир. Том 2", "Толстой Л.Н.", 10, 5)
+	myContactBook.AddContact("vasya", "123")
+	myContactBook.AddContact("couzee", "1234")
 
-	firstReader := library.NewReader(1, "vasya")
-	secondReader := library.NewReader(2, "oleg")
+	myContactBook.List()
 
-	centralLibrary.AddBook(firstBook)
-	centralLibrary.AddBook(secondBook)
+	myContactBook.Delete("vasya")
 
-	centralLibrary.RegisterReader(firstReader)
-	centralLibrary.RegisterReader(secondReader)
-
-	centralLibrary.BorrowBook(1, 1, 1)
-
-	centralLibrary.GetReaderBorrows(1)
-
-	centralLibrary.ReturnBook(1)
-
-	centralLibrary.GetReaderBorrows(1)
-
-	centralLibrary.BorrowBook(1, 1, 2)
-
-	centralLibrary.GetReaderBorrows(1)
-
-	centralLibrary.ReturnBook(3)
-
+	myContactBook.List()
 }
