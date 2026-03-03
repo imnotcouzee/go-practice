@@ -1,18 +1,24 @@
 package main
 
 import (
-	contactbook "contact-book/contact-book"
+	"library/library"
 )
 
 func main() {
-	myContactBook := contactbook.NewContactBook("couzee")
 
-	myContactBook.AddContact("vasya", "123")
-	myContactBook.AddContact("couzee", "1234")
+	centralLibrary := library.NewLibrary("Центральная Библиотека")
 
-	myContactBook.List()
+	centralLibrary.AddBook("Гарри Поттер", "Дж.К. Роулинг", 3)
+	centralLibrary.AddBook("Властелин колец", "Дж.Р.Р. Толкин", 2)
+	centralLibrary.AddBook("Гарри Поттер", "Дж.К. Роулинг", 1)
 
-	myContactBook.Delete("vasya")
+	centralLibrary.ListBooks()
 
-	myContactBook.List()
+	centralLibrary.RemoveBook("Гарри Поттер", 2)
+
+	centralLibrary.ListBooks()
+
+	centralLibrary.RemoveBook("Гарри Поттер", 2)
+
+	centralLibrary.ListBooks()
 }
