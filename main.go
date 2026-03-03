@@ -1,24 +1,32 @@
 package main
 
 import (
-	"library/library"
+	"warehouse-system/warehouse"
 )
 
 func main() {
 
-	centralLibrary := library.NewLibrary("Центральная Библиотека")
+	centralWarehouse := warehouse.NewWarehouse("Центральный Склад")
 
-	centralLibrary.AddBook("Гарри Поттер", "Дж.К. Роулинг", 3)
-	centralLibrary.AddBook("Властелин колец", "Дж.Р.Р. Толкин", 2)
-	centralLibrary.AddBook("Гарри Поттер", "Дж.К. Роулинг", 1)
+	centralWarehouse.AddProduct(1, "Яблоко", 3, 40.0)
+	centralWarehouse.AddProduct(2, "Бананы", 4, 67.0)
+	centralWarehouse.AddProduct(3, "Лайм", 5, 55.0)
 
-	centralLibrary.ListBooks()
+	centralWarehouse.AddSupllier(1, "ООО Бнал")
+	centralWarehouse.AddSupllier(2, "ООО Бнал")
 
-	centralLibrary.RemoveBook("Гарри Поттер", 2)
+	centralWarehouse.CreateSupplyOrder(1, 1)
 
-	centralLibrary.ListBooks()
+	centralWarehouse.GetSupplyOrders()
 
-	centralLibrary.RemoveBook("Гарри Поттер", 2)
+	centralWarehouse.AddProductToOrder(1, 2, 5)
 
-	centralLibrary.ListBooks()
+	centralWarehouse.GetSupplyOrders()
+
+	centralWarehouse.ConfirmSupplyOrder(1)
+
+	centralWarehouse.GetSupplyOrders()
+
+	centralWarehouse.CancelSupplyOrder(1)
+
 }
